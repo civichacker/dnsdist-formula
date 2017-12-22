@@ -1,0 +1,20 @@
+dnsdist:
+  repo:
+    release: 12
+    keyid: CBC8B383
+
+  config:
+    setLocal: 127.0.0.1:5300
+    newServer: 127.0.0.1
+    dnscrypt:
+      provider_public_key: /etc/dnsdist/providerPublic.key
+      provider_private_key: /etc/dnsdist/providerPrivate.key
+      resolver_cert: /etc/dnsdist/resolver.cert
+      resolver_key: /etc/dnsdist/resolver.key
+      serial: 12
+      valid_from: 1509222398
+      valid_until: 1509222398
+    inline: |
+      pc = newPacketCache(10000, 86400, 0, 60, 60, false);
+      getPool(""):setCache(pc);
+

@@ -1,0 +1,31 @@
+{% set dnsdist = salt['pillar.get']('dnsdist', {
+    'lookup': salt['grains.filter_by']({
+        'Debian': {
+            'pkg': 'dnsdist',
+            'config_file': '/etc/dnsdist/dnsdist.conf',
+            'config_dir': '/etc/dnsdist',
+            'service': 'dnsdist',
+        },
+        'RedHat': {
+            'pkg': 'dnsdist',
+            'config_file': '/etc/pdns/dnsdist.conf',
+            'service': 'dnsdist',
+        },
+        'Suse': {
+            'pkg': 'dnsdist',
+            'config_file': '/etc/dnsdist/dnsdist.conf',
+            'config_dir': '/etc/dnsdist',
+            'service': 'dnsdist',
+        },
+    }),
+    'config': salt['grains.filter_by']({
+        'Debian': {
+        },
+        'RedHat': {
+        },
+    }),
+    'repo': {
+        'release': '12',
+        'keyid': 'FD380FBB',
+    }
+}, merge=True) %}
