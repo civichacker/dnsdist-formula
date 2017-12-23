@@ -3,7 +3,7 @@
 
 dnsdist_config:
   file.managed:
-    - name: {{ dnsdist.lookup.config_file }}
+    - name: /etc/dnsdist/dnsdist.conf
     - source: salt://dnsdist/files/dnsdist.conf
     - template: jinja
     - user: root
