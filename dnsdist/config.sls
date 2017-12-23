@@ -1,18 +1,5 @@
 {% from "dnsdist/map.jinja" import dns with context %}
 
-include:
-  - dnsdist
-{% if dnsdist.dnscrypt %}
-  - dnsdist.dnscrypt
-
-# Stop the service if it's running
-# First lets setup the console (temporarily)
-# dnscrypt_config:
-# start the service
-# send the commands to generate keys and certs
-# stop service
-{% endif %}
-
 
 dnsdist_config:
   file.managed:
