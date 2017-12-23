@@ -1,4 +1,4 @@
-{% from "dnsdist/map.jinja" import dnsdist with context %}
+{% from "dnsdist/map.jinja" import dns with context %}
 
 include:
   - dnsdist
@@ -16,7 +16,7 @@ include:
 
 dnsdist_config:
   file.managed:
-    - name: {{ dnsdist.lookup.config_file }}
+    - name: {{ dns.lookup.config_file }}
     - source: salt://dnsdist/files/dnsdist.conf
     - template: jinja
     - user: root
